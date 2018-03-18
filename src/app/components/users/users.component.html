@@ -1,0 +1,18 @@
+<div class="upper-section">
+  <span *ngIf="userList" class="users-count"><strong>{{userList.length}}</strong> {{userList.length == 1 ? 'user' : 'users'}} registered</span>
+  <button class="btn btn-primary" (click)="goToForm()">Add New User</button>
+</div>
+<section class="main" *ngIf="userList">
+  <ul class="users-list">
+    <li *ngFor="let user of userList">
+      <div class="user-profile">
+        <img class="user-avatar" src={{user.avatar}}>
+        <span class="user-name">{{user.first_name}} {{user.last_name}}</span>
+        <!--<button class="destroy" (click)="deleteUserById(user.id)"></button>-->
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="main" *ngIf="!userList">
+  <div>Start by adding users to the list</div>
+</section>
